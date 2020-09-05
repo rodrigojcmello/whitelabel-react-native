@@ -1,0 +1,125 @@
+env:
+  node: true
+
+extends:
+  - airbnb-base
+  - plugin:prettier/recommended
+  - prettier
+
+plugins:
+  - prettier
+  - unicorn
+
+overrides:
+  - files:
+      - "**/*.ts"
+      - "**/*.tsx"
+
+    env:
+      browser: true
+      es2020: true
+      jest: true
+
+    parser: '@typescript-eslint/parser'
+
+    parserOptions:
+      # TypeScript
+      project: tsconfig.json
+
+      # Modern JavaScript
+      ecmaVersion: 11
+      sourceType: module
+
+      # React
+      ecmaFeatures:
+        jsx: true
+
+    extends:
+      # JavaScript and React
+      - airbnb
+      - airbnb/hooks
+      - plugin:unicorn/recommended
+
+      # Jest-dom
+      - plugin:jest-dom/recommended
+
+      # TypeScript
+      - 'plugin:@typescript-eslint/recommended'
+      - plugin:import/typescript
+
+      # Prettier
+      - plugin:prettier/recommended
+      - prettier
+      - prettier/react
+      - 'prettier/@typescript-eslint'
+
+    plugins:
+      - react
+      - '@typescript-eslint'
+      - prettier
+
+      # Extra awesome ESLint rules
+      - unicorn
+
+      # It is necessary to turn warnings into errors to be caught by the Git hooks
+      - only-error
+
+      # Rules for jest-dom
+      - jest-dom
+
+    rules:
+      # ---------------------------------------------------------------------------
+      # Project rules
+      # ---------------------------------------------------------------------------
+
+      # JavaScript: Limit 300 lines per file
+      max-lines: 1
+
+      # TypeScript: Ensure values returned from functions
+      '@typescript-eslint/explicit-function-return-type': 1
+
+      # ---------------------------------------------------------------------------
+      # Overwritten rules
+      # ---------------------------------------------------------------------------
+
+      import/prefer-default-export: off
+
+      # React: Allows use tsx files
+      react/jsx-filename-extension:
+        - error
+        - extensions:
+            - ".tsx"
+
+      # PropTypes is not necessary with TypeScript
+      react/jsx-props-no-spreading: off
+
+      # Import: Resolves TypeScript extensions
+      import/extensions:
+        - error
+        - extensions:
+            - ".ts"
+            - ".tsx"
+
+      # Import: Adds exception to tests
+      import/no-extraneous-dependencies:
+        - error
+        - devDependencies:
+            - "**/*.test.tsx"
+            - "**/setupTests.ts"
+
+      # Unicorn: Allows pascalCase for React components
+      unicorn/filename-case:
+        - error
+        - cases:
+            kebabCase: true
+            pascalCase: true
+            camelCase: true
+
+      # React needs props abbreviation
+      unicorn/prevent-abbreviations:
+        - error
+        - whitelist:
+            props: true
+            Props: true
+
+
