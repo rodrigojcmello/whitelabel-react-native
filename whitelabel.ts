@@ -2,29 +2,37 @@ import { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 
 export type Styles = ViewStyle | TextStyle | ImageStyle;
 
-interface ButtonElements<T> {
-  button?: T;
-  text?: T;
-}
+export type ButtonElementsAttributes = 'button' | 'text';
+
+type ButtonElements<T> = {
+  [attr in ButtonElementsAttributes]: T;
+};
+
+export type ButtonTypeAttribute = 'accent' | 'default' | 'text';
+
+export type ButtonSizeAttribute =
+  | 'xxxSmall'
+  | 'xxSmall'
+  | 'xSmall'
+  | 'small'
+  | 'medium'
+  | 'large'
+  | 'xLarge'
+  | 'xxLarge'
+  | 'xxxLarge';
+
+type ButtonTypeStyle<T> = {
+  [attr in ButtonTypeAttribute]: Partial<ButtonElements<T>>;
+};
+
+type ButtonSizeStyle<T> = {
+  [attr in ButtonSizeAttribute]: Partial<ButtonElements<T>>;
+};
 
 interface WhiteLabel<T> {
   button?: {
-    type?: {
-      accent?: ButtonElements<T>;
-      default?: ButtonElements<T>;
-      text?: ButtonElements<T>;
-    };
-    size?: {
-      xxxSmall: ButtonElements<T>;
-      xxSmall: ButtonElements<T>;
-      xSmall: ButtonElements<T>;
-      small: ButtonElements<T>;
-      medium: ButtonElements<T>;
-      large: ButtonElements<T>;
-      xLarge: ButtonElements<T>;
-      xxLarge: ButtonElements<T>;
-      xxxLarge: ButtonElements<T>;
-    };
+    type?: ButtonTypeStyle<T>;
+    size?: ButtonSizeStyle<T>;
   };
 }
 
@@ -60,15 +68,26 @@ const whitelabel: WhiteLabel<Styles> = {
       },
     },
     size: {
-      xxxSmall: {},
-      xxSmall: {},
+      xxxSmall: {
+        button: {
+          color: 'red',
+        },
+        text: {
+          color: 'red',
+        },
+      },
+      xxSmall: {
+        button: {
+          color: 'red',
+        },
+      },
       xSmall: {},
       small: {
         button: {
           minWidth: 80,
         },
         text: {
-          // lineHeight: '20px',
+          lineHeight: 20,
           fontSize: 12,
         },
       },
@@ -80,6 +99,7 @@ const whitelabel: WhiteLabel<Styles> = {
           paddingLeft: 16,
         },
         text: {
+          lineHeight: 20,
           fontSize: 14,
         },
       },
@@ -89,6 +109,7 @@ const whitelabel: WhiteLabel<Styles> = {
           height: 42,
         },
         text: {
+          lineHeight: 20,
           fontSize: 16,
         },
       },

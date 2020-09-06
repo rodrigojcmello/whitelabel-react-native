@@ -21,7 +21,7 @@ const App: FC = () => {
         </View>
         <Button type="accent" text="accent" size="small" />
         <Button type="default" text="default" size="medium" />
-        <Button type="text" text="text 1" size="large" />
+        <Button type="text" text="text" size="large" />
       </SafeAreaView>
     </>
   );
