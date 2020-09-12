@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import whitelabel from '../../../whitelabel';
+import whitelabel from '../../../whitelabel-fluent';
 
 interface ButtonProps {
   text: string;
@@ -19,27 +19,45 @@ interface ButtonProps {
 
 const Button: FC<ButtonProps> = ({ text, type, size }) => {
   return (
-    <View
-      style={[
-        styles.button,
-        modifier[type]?.button,
-        modifier[size || 'medium']?.button,
-      ]}
-    >
-      <Text
-        style={[
-          styles.text,
-          modifier[type]?.text,
-          modifier[size || 'medium']?.text,
-        ]}
-      >
-        {text}
-      </Text>
+    <View style={styles.buttonContainer}>
+      <View style={styles.buttonContainer2}>
+        <View
+          style={[
+            styles.button,
+            modifier[type]?.button,
+            modifier[size || 'medium']?.button,
+          ]}
+        >
+          <Text
+            style={[
+              styles.text,
+              modifier[type]?.text,
+              modifier[size || 'medium']?.text,
+            ]}
+          >
+            {text}
+          </Text>
+        </View>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  buttonContainer: {
+    padding: 3,
+    backgroundColor: '#000',
+    justifyContent: 'center',
+    alignSelf: 'flex-start',
+    margin: -3,
+  },
+  buttonContainer2: {
+    padding: 1,
+    backgroundColor: '#FFF',
+    justifyContent: 'center',
+    alignSelf: 'flex-start',
+    margin: -1,
+  },
   button: {
     // Default
     alignItems: 'center',

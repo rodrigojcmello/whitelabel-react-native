@@ -41,25 +41,20 @@ const whitelabel: WhiteLabel<Styles> = {
     type: {
       accent: {
         button: {
-          backgroundColor: '#6200ee',
-          borderRadius: 4,
+          backgroundColor: '#0078d4',
+          borderRadius: 2,
         },
         text: {
           color: '#FFFFFF',
-          textTransform: 'uppercase',
         },
       },
       default: {
         button: {
-          backgroundColor: '#FFFFFF',
-          borderRadius: 4,
-          borderWidth: 1,
-          borderStyle: 'solid',
-          borderColor: '#0000001f',
+          backgroundColor: '#efefef',
+          borderRadius: 2,
         },
         text: {
-          color: '#6200ee',
-          textTransform: 'uppercase',
+          color: '#000000',
         },
       },
       text: {
@@ -67,8 +62,8 @@ const whitelabel: WhiteLabel<Styles> = {
           backgroundColor: '#ffffff00',
         },
         text: {
-          color: '#6200ee',
-          textTransform: 'uppercase',
+          color: '#0078D4',
+          textDecorationLine: 'underline',
         },
       },
     },
@@ -90,9 +85,6 @@ const whitelabel: WhiteLabel<Styles> = {
       small: {
         button: {
           minWidth: 80,
-          height: 24,
-          paddingRight: 16,
-          paddingLeft: 16,
         },
         text: {
           lineHeight: 20,
@@ -102,7 +94,7 @@ const whitelabel: WhiteLabel<Styles> = {
       medium: {
         button: {
           minWidth: 120,
-          height: 36,
+          height: 32,
           paddingRight: 16,
           paddingLeft: 16,
         },
