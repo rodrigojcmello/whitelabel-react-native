@@ -82,6 +82,7 @@ overrides:
       # Overwritten rules
       # ---------------------------------------------------------------------------
 
+      react/prop-types: off
       import/prefer-default-export: off
 
       # React: Allows use tsx files
